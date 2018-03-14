@@ -1,0 +1,28 @@
+<h1>Restaurants</h1>
+
+<table>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Category</th>
+  </tr>
+</thead>
+
+<tbody>
+<% @restaurants.each do |r| %>
+<tr>
+<td><%= r.name %></td>
+<td><%= r.category %></td>
+<td><%= link_to 'Show', restaurant_path(r) %></td>
+<td><%= link_to 'Edit', edit_admin_restaurant_path(r) %></td>
+<td><%= link_to 'Delete', admin_restaurant_path(r),
+method: :delete,
+data: {confirm: "Are you positive?"}%> </td>
+</tr>
+<% end %>
+</tbody>
+</table>
+
+<br>
+
+<%= link_to 'New', new_restaurant_path %>
